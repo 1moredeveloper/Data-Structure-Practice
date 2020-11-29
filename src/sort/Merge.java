@@ -6,7 +6,6 @@ public class Merge {
     }
 
     public static void sort(int[] arr, int start, int end) {
-        // If size == 1, Array already sorted
         if (start >= end) {
             return;
         }
