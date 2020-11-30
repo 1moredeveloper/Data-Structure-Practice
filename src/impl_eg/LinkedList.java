@@ -32,14 +32,16 @@ public class LinkedList {
         return length;
     }
 
-    public void insert(Node node, int position) {
+    public void insert(int value, int position) {
         if (position == 0) {
+            Node node = new Node(value);
             node.setNext(getHead());
             setHead(node);
             incrementLength();
         } else {
             Node beforeNode = node(position - 1);
             if (beforeNode != null) {
+                Node node = new Node(value);
                 node.setNext(beforeNode.getNext());
                 beforeNode.setNext(node);
                 incrementLength();
@@ -47,14 +49,15 @@ public class LinkedList {
         }
     }
 
-    public void append(Node node) {
+    public void append(int value) {
         if (getHead() == null) {
+            Node node = new Node(value);
             setHead(node);
             incrementLength();
             return;
         }
 
-        node(length() - 1).setNext(node);
+        node(length() - 1).setNext(new Node(value));
         incrementLength();
     }
 
@@ -82,7 +85,7 @@ public class LinkedList {
     }
 
     @Nullable
-    public Node node(int position) {
+    private Node node(int position) {
         int i = 0;
         Node currNode = getHead();
         while (currNode != null) {
@@ -93,5 +96,14 @@ public class LinkedList {
             i++;
         }
         return null;
+    }
+
+    public void removeLast() {
+        Node node = node(length - 2);
+        node.setNext(null);
+    }
+
+    public int getLast() {
+        return get(length - 1);
     }
 }
