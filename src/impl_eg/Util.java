@@ -3,7 +3,17 @@ package impl_eg;
 public class Util {
     public static void main(String[] args) {
 //        testSinglyLinkedList();
-        testStack();
+//        testStack();
+        testQueue();
+    }
+
+    private static void testQueue() {
+        Queue queue = new Queue();
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+        queue.remove();
+        queue.display();
     }
 
     private static void testStack() {
